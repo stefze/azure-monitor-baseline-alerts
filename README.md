@@ -5,6 +5,8 @@
 
 > **_NOTE:_**  Please check out our the [AMBA GitHub Pages](https://azure.github.io/azure-monitor-baseline-alerts/welcome) site for more interactive access to the content in this repo.
 
+| Azure Portal UI           | [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#blade/Microsoft_Azure_CreateUIDef/CustomDeploymentBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fstefze%2Fazure-monitor-baseline-alerts%2Fmain%2Fpatterns%2Favd%2FavdArm.json/uiFormDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fstefze%2Fazure-monitor-baseline-alerts%2Fmain%2Fpatterns%2Favd%2FavdCustomUi.json)
+
 Welcome to the **Azure Monitor Baseline Alerts (AMBA)** repo!  The purpose of this site is to provide best practice guidance around key alerts metrics and their thresholds.
 
 This sites is broken down into two main sections:
