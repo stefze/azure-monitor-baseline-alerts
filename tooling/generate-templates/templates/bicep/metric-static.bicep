@@ -61,7 +61,6 @@ param timeAggregation string = '##TIME_AGGREGATION##'
   'PT1H'
   'PT6H'
   'PT12H'
-  'PT24H'
   'P1D'
 ])
 param windowSize string = '##WINDOW_SIZE##'
@@ -107,7 +106,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
         {
           name: '1st criterion'
           metricName: '##METRIC_NAME##'
-          dimensions: [##DIMENSIONS##]
+          dimensions: ##DIMENSIONS##
           operator: operator
           threshold: threshold
           timeAggregation: timeAggregation
@@ -119,7 +118,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
 }
 
 var ambaTelemetryPidName = '##TELEMETRY_PID##-${uniqueString(resourceGroup().id, alertName, currentDateTimeUtcNow)}'
-resource ambaTelemetryPid 'Microsoft.Resources/deployments@2020-06-01' =  if (telemetryOptOut == 'No') {
+resource ambaTelemetryPid 'Microsoft.Resources/deployments@2023-07-01' =  if (telemetryOptOut == 'No') {
   name: ambaTelemetryPidName
   tags: {
     _deployed_by_amba: 'true'

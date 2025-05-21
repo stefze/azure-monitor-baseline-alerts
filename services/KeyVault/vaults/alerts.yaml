@@ -5,6 +5,7 @@
   visible: true
   tags:
   - alz
+  - rag
   properties:
     category: Administrative
     operationName: Microsoft.KeyVault/vaults/delete
@@ -26,6 +27,7 @@
       policyScope: managementGroup
       documented: false
       alertName: ActivityKeyVaultDelete
+      enabled: true
   guid: f68ed392-7179-419d-8ee6-3813ea10866b
 - name: Availability
   description: Vault requests availability
@@ -34,6 +36,7 @@
   visible: true
   tags:
   - alz
+  - rag
   properties:
     metricName: Availability
     metricNamespace: Microsoft.KeyVault/vaults
@@ -45,6 +48,7 @@
     threshold: 90
     criterionType: StaticThresholdCriterion
     autoMitigate: false
+    enabled: true
   references:
   - name: Monitoring KeyVault Reference
     url: https://docs.microsoft.com/en-us/azure/key-vault/general/monitor-key-vault-reference
@@ -69,6 +73,7 @@
   visible: true
   tags:
   - alz
+  - rag
   properties:
     metricName: SaturationShoebox
     metricNamespace: Microsoft.KeyVault/vaults
@@ -80,6 +85,7 @@
     threshold: 75
     criterionType: StaticThresholdCriterion
     autoMitigate: false
+    enabled: true
   references:
   - name: Monitoring KeyVault Reference
     url: https://docs.microsoft.com/en-us/azure/key-vault/general/monitor-key-vault-reference
@@ -104,6 +110,7 @@
   visible: true
   tags:
   - alz
+  - rag
   properties:
     metricName: ServiceApiLatency
     metricNamespace: Microsoft.KeyVault/vaults
@@ -115,6 +122,7 @@
     threshold: 1000
     criterionType: StaticThresholdCriterion
     autoMitigate: false
+    enabled: true
   references:
   - name: Monitoring KeyVault Reference
     url: https://docs.microsoft.com/en-us/azure/key-vault/general/monitor-key-vault-reference
@@ -139,6 +147,7 @@
   visible: true
   tags:
   - alz
+  - rag
   properties:
     metricName: ServiceApiResult
     metricNamespace: Microsoft.KeyVault/vaults
@@ -153,6 +162,7 @@
       numberOfEvaluationPeriods: 4
       minFailingPeriodsToAlert: 4
     autoMitigate: false
+    enabled: true
   references:
   - name: Monitoring KeyVault Reference
     url: https://docs.microsoft.com/en-us/azure/key-vault/general/monitor-key-vault-reference
@@ -178,6 +188,7 @@
   tags:
   - auto-generated
   - agc-1137
+  - rag
   properties:
     metricName: ServiceApiHit
     metricNamespace: Microsoft.KeyVault/vaults
@@ -188,4 +199,5 @@
     operator: GreaterThanOrEqual
     criterionType: StaticThresholdCriterion
     threshold: 80.0
+    enabled: true
   guid: 7b52bf07-3d86-4429-b5d4-829a6a5542df

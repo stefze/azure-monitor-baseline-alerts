@@ -37,10 +37,10 @@ param alertSeverity int = 2
   'LessThan'
   'LessThanOrEqual'
 ])
-param operator string = 'GreaterThanOrEqual'
+param operator string = 'GreaterThan'
 
 @description('The threshold value at which the alert is activated.')
-param threshold int = 1
+param threshold int = 0
 
 @description('How the data that is collected should be combined over time.')
 @allowed([
@@ -61,7 +61,6 @@ param timeAggregation string = 'Count'
   'PT1H'
   'PT6H'
   'PT12H'
-  'PT24H'
   'P1D'
 ])
 param windowSize string = 'PT5M'
@@ -124,7 +123,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
 }
 
 var ambaTelemetryPidName = 'pid-8bb7cf8a-bcf7-4264-abcb-703ace2fc84d-${uniqueString(resourceGroup().id, alertName, currentDateTimeUtcNow)}'
-resource ambaTelemetryPid 'Microsoft.Resources/deployments@2020-06-01' =  if (telemetryOptOut == 'No') {
+resource ambaTelemetryPid 'Microsoft.Resources/deployments@2023-07-01' =  if (telemetryOptOut == 'No') {
   name: ambaTelemetryPidName
   tags: {
     _deployed_by_amba: 'true'

@@ -43,7 +43,7 @@ param operator string = 'GreaterThan'
   'Medium'
   'Low'
 ])
-param alertSensitivity string = '##ALERT_SENSITIVITY##'
+param alertSensitivity string = 'Medium'
 
 @description('The number of periods to check in the alert evaluation.')
 param numberOfEvaluationPeriods int = 4
@@ -63,20 +63,16 @@ param timeAggregation string = 'Average'
 
 @description('Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one hour. ISO 8601 duration format.')
 @allowed([
-  'PT1M'
   'PT5M'
   'PT15M'
   'PT30M'
   'PT1H'
-  'PT6H'
-  'PT12H'
-  'PT24H'
-  'P1D'
 ])
 param windowSize string = 'PT5M'
 
 @description('how often the metric alert is evaluated represented in ISO 8601 duration format')
 @allowed([
+  'PT1M'
   'PT5M'
   'PT15M'
   'PT30M'
@@ -116,7 +112,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
           criterionType: 'DynamicThresholdCriterion'
           name: '1st criterion'
           metricName: 'QosDropBitsInPerSecond'
-          dimensions: [[]]
+          dimensions: []
           operator: operator
           alertSensitivity: alertSensitivity
           failingPeriods: {
@@ -131,7 +127,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
 }
 
 var ambaTelemetryPidName = 'pid-8bb7cf8a-bcf7-4264-abcb-703ace2fc84d-${uniqueString(resourceGroup().id, alertName, currentDateTimeUtcNow)}'
-resource ambaTelemetryPid 'Microsoft.Resources/deployments@2020-06-01' =  if (telemetryOptOut == 'No') {
+resource ambaTelemetryPid 'Microsoft.Resources/deployments@2023-07-01' =  if (telemetryOptOut == 'No') {
   name: ambaTelemetryPidName
   tags: {
     _deployed_by_amba: 'true'
