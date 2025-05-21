@@ -1938,6 +1938,7 @@ var varTimeZones = {
   francesouth: 'Central Europe Standard Time'
   germanynorth: 'Central Europe Standard Time'
   germanywestcentral: 'Central Europe Standard Time'
+  italynorth: 'Central Europe Standard Time'
   japaneast: 'Tokyo Standard Time'
   japanwest: 'Tokyo Standard Time'
   jioindiacentral: 'India Standard Time'
